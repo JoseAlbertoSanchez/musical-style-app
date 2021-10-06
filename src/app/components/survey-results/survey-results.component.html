@@ -1,0 +1,61 @@
+<div class="container">
+  <h2>Resultados de encuestas</h2>
+
+  <div class="container-table">
+    <table mat-table [dataSource]="surveyResults" class="mat-elevation-z8 demo-table">
+      <!-- Position Column -->
+      <ng-container matColumnDef="id">
+        <th mat-header-cell *matHeaderCellDef>Id</th>
+        <td mat-cell *matCellDef="let element">{{element.id}}</td>
+      </ng-container>
+
+      <!-- Name Column -->
+      <ng-container matColumnDef="createDate">
+        <th mat-header-cell *matHeaderCellDef>Fecha</th>
+        <td mat-cell *matCellDef="let element">{{element.createDate | date: 'shortDate'}}</td>
+      </ng-container>
+
+      <!-- Name Column -->
+      <ng-container matColumnDef="email">
+        <th mat-header-cell *matHeaderCellDef>Email</th>
+        <td mat-cell *matCellDef="let element">{{element.user.email}}</td>
+      </ng-container>
+
+      <!-- Weight Column -->
+      <ng-container matColumnDef="musicalStyles">
+        <th mat-header-cell *matHeaderCellDef>Estilos musicales</th>
+        <td mat-cell *matCellDef="let element">
+          <mat-list role="list" *ngFor="let musicalStyle of element.musicalStyles">
+            <mat-list-item role="listitem" class="musical-styles">
+              <mat-icon>music_note</mat-icon>
+              {{musicalStyle.name}}
+            </mat-list-item>
+          </mat-list>
+        </td>
+      </ng-container>
+
+      <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+      <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+    </table>
+
+    <div class="container-buttons">
+      <button mat-raised-button color="primary" (click)="back()">Volver</button>
+      <button class="button-show-chart" mat-raised-button color="primary" (click)="showDialog()">Ver gráfica</button>
+    </div>
+
+    <ng-template #dialogChart>
+      <div mat-dialog-content>
+        <google-chart [title]="title"
+                      [type]="type"
+                      [data]="data"
+                      [options]="options"
+                      [columns]="columnNames">
+        </google-chart>
+      </div>
+      <div style="text-align: center">
+        <button mat-raised-button color="primary" mat-dialog-close>Aceptar</button>
+      </div>
+    </ng-template>
+
+  </div>
+</div>

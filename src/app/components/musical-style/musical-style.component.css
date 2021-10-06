@@ -1,0 +1,20 @@
+.container {
+  margin-left: 30%;
+  margin-right: 30%;
+}
+
+.container h2 {
+  margin-top: 5%;
+}
+
+.container-musical-styles {
+  margin-top: 10%;
+}
+
+.full-width {
+  width: 100%;
+}
+
+.container-buttons button {
+  margin: 20px 10px;
+}

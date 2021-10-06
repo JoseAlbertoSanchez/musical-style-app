@@ -1,0 +1,33 @@
+<div class="container">
+  <h2>Encuesta de estilos musicales</h2>
+  <mat-divider></mat-divider>
+
+  <div class="container-survey">
+    <form [formGroup]="surveyFormGroup">
+    <mat-form-field class="full-width" appearance="fill">
+      <mat-label>Ingrese nombre de encuestado</mat-label>
+      <input matInput type="text" required formControlName="email">
+      <mat-error *ngIf="surveyFormGroup.get('email')?.hasError('email')">
+        Por favor, ingrese un usuario correcto (formato de email).
+      </mat-error>
+      <mat-error *ngIf="surveyFormGroup.get('email')?.hasError('required')">
+        Por favor, ingrese un correo.
+      </mat-error>
+    </mat-form-field>
+
+    <mat-form-field class="full-width" appearance="fill">
+      <mat-label>Seleccione estilo musical</mat-label>
+      <mat-select formControlName="musicalStylesSelected" multiple>
+        <mat-option *ngFor="let musicalStyle of musicalStyles"
+                    [value]="musicalStyle">{{musicalStyle.name}}</mat-option>
+      </mat-select>
+    </mat-form-field>
+    </form>
+  </div>
+
+  <div class="container-buttons">
+  <button mat-raised-button color="primary" (click)="back()">Volver</button>
+  <button mat-raised-button color="primary" [disabled]="surveyFormGroup.invalid" (click)="createSurvey()">Guardar</button>
+  </div>
+
+</div>

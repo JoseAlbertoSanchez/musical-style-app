@@ -1,0 +1,10 @@
+::ng-deep .container {
+  text-align: center;
+}
+
+::ng-deep body {
+  background-image: url("src/assets/img/music.jpg");
+  background-position: bottom right;
+  background-size: 35%;
+  background-repeat: no-repeat;
+}

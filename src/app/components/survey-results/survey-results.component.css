@@ -1,0 +1,26 @@
+.container-buttons {
+  margin-top: 20px;
+}
+
+.container-buttons button {
+  margin: 0 10px 20px;
+}
+
+.musical-styles {
+  font-size: 14px;
+  height: fit-content;
+}
+
+.container-table {
+  margin: 5% 20%;
+}
+
+table {
+  width: 100%;
+  background: transparent;
+  text-align: left;
+}
+
+.container h2 {
+  margin-top: 20px;
+}
